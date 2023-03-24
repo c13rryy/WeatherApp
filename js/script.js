@@ -27,7 +27,7 @@ async function checkWeather(city) {
 
     if(data.weather[0].main === 'Clouds'){
        weatherIcon.src = 'images/clouds.png';
-       wrapperr.style.backgroundImage = 'url(../images/cl.jpeg)';
+       wrapperr.style.backgroundImage = 'url(../images/cl.jpg)';
     }else if(data.weather[0].main === 'Clear'){
         weatherIcon.src = 'images/clear.png';
         wrapperr.style.backgroundImage = 'url(../images/sunny.jpg)';
@@ -36,7 +36,7 @@ async function checkWeather(city) {
         wrapperr.style.backgroundImage = 'url(../images/rain.jpg)';
     }else if(data.weather[0].main === 'Drizzle'){
         weatherIcon.src = 'images/drizzle.png';
-        wrapperr.style.backgroundImage = 'url(../images/tym.jpeg)';
+        wrapperr.style.backgroundImage = 'url(../images/tym.jpg)';
     }else if(data.weather[0].main === 'Mist'){
         weatherIcon.src = 'images/mist.png';
         wrapperr.style.backgroundImage = 'url(../images/ss.jpg)';
