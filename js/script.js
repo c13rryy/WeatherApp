@@ -4,7 +4,9 @@ const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=
 const searchBox = document.querySelector('.search input');
 const searchBtn = document.querySelector('.search button');
 const locationButton = document.querySelector('.another button');
-const weatherIcon = document.querySelector('.weather-icon')
+const weatherIcon = document.querySelector('.weather-icon');
+
+const wrapperr = document.querySelector('.wrapper');
 
 async function checkWeather(city) {
      
@@ -25,14 +27,24 @@ async function checkWeather(city) {
 
     if(data.weather[0].main === 'Clouds'){
        weatherIcon.src = 'images/clouds.png';
+       wrapperr.style.backgroundImage = 'url(../images/cl.jpeg)';
     }else if(data.weather[0].main === 'Clear'){
-        weatherIcon.src = 'images/clear.png'
+        weatherIcon.src = 'images/clear.png';
+        wrapperr.style.backgroundImage = 'url(../images/sunny.jpg)';
     }else if(data.weather[0].main === 'Rain'){
-        weatherIcon.src = 'images/rain.png'
+        weatherIcon.src = 'images/rain.png';
+        wrapperr.style.backgroundImage = 'url(../images/rain.jpg)';
     }else if(data.weather[0].main === 'Drizzle'){
-        weatherIcon.src = 'images/drizzle.png'
+        weatherIcon.src = 'images/drizzle.png';
+        wrapperr.style.backgroundImage = 'url(../images/tym.jpeg)';
     }else if(data.weather[0].main === 'Mist'){
-        weatherIcon.src = 'images/mist.png'
+        weatherIcon.src = 'images/mist.png';
+        wrapperr.style.backgroundImage = 'url(../images/ss.jpg)';
+    }
+    else if(data.weather[0].main === 'Snow'){
+        weatherIcon.src = 'images/snow.png';
+        wrapperr.style.backgroundImage = 'url(../images/snowy.jpg)';
+        
     }
 
     document.querySelector('.weather').style.display = "block";
