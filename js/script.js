@@ -27,23 +27,17 @@ async function checkWeather(city) {
 
     if(data.weather[0].main === 'Clouds'){
        weatherIcon.src = 'images/clouds.png';
-       wrapperr.style.backgroundImage = 'url(../images/cl.jpg)';
     }else if(data.weather[0].main === 'Clear'){
         weatherIcon.src = 'images/clear.png';
-        wrapperr.style.backgroundImage = 'url(../images/sunny.jpg)';
     }else if(data.weather[0].main === 'Rain'){
         weatherIcon.src = 'images/rain.png';
-        wrapperr.style.backgroundImage = 'url(../images/rain.jpg)';
     }else if(data.weather[0].main === 'Drizzle'){
         weatherIcon.src = 'images/drizzle.png';
-        wrapperr.style.backgroundImage = 'url(../images/tym.jpg)';
     }else if(data.weather[0].main === 'Mist'){
         weatherIcon.src = 'images/mist.png';
-        wrapperr.style.backgroundImage = 'url(../images/ss.jpg)';
     }
     else if(data.weather[0].main === 'Snow'){
         weatherIcon.src = 'images/snow.png';
-        wrapperr.style.backgroundImage = 'url(../images/snowy.jpg)';
         
     }
 
@@ -55,14 +49,19 @@ async function checkWeather(city) {
 }
 
 searchBtn.addEventListener('click', () => {
-    checkWeather(searchBox.value); // Варгументе текст который приходит с инпута
+    /* checkWeather(searchBox.value); */ // Варгументе текст который приходит с инпута
+    let txt = searchBox.value;
+    let newTxt = txt.replace(/ /g, "");
+    checkWeather(newTxt);
 })
 
-searchBtn.addEventListener('keypress', function (e)  {
-     if(e.key === 'Enter'){
-         checkWeather(searchBox.value); // Варгументе текст который приходит с инпута
-     }
-})
+document.addEventListener("keydown", function(event) {
+    if (event.keyCode === 13) {
+        let txt = searchBox.value;
+    let newTxt = txt.replace(/ /g, "");
+    checkWeather(newTxt);
+    }
+  });
 
 function geMycoordin () {
     return new Promise ((resolve, reject) => {
